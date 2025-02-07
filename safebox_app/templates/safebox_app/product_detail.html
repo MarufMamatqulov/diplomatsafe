@@ -1,0 +1,63 @@
+{% extends 'safebox_app/base.html' %}
+{% load static %}
+
+{% block title %}{{ safe.name }}{% endblock %}
+
+{% block content %}
+    <div class="product-detail">
+        {% if safe.model and safe.model.images.all %}
+            <div class="product-images">
+                {% for image in safe.model.images.all %}
+                    <img src="{{ image.image.url }}" alt="{{ safe.name }}">
+                {% endfor %}
+            </div>
+        {% else %}
+            <img src="{% static 'safebox_app/images/no-image.jpg' %}" alt="Placeholder">
+        {% endif %}
+
+        <div class="product-info">
+            <h1>{{ safe.name }}</h1>
+            <p class="price">{{ safe.price }} so'm</p>
+            <p class="description">{{ safe.description }}</p>
+
+            <ul>
+                <li><strong>Brend:</strong> {{ safe.model.brand.name }}</li>
+                <li><strong>Model:</strong> {{ safe.model.name }}</li>
+                <li><strong>O'lchamlari:</strong> {{ safe.dimensions }}</li>
+                <li><strong>Og'irligi:</strong> {{ safe.weight }} kg</li>
+                <li><strong>Qulf turi:</strong> {{ safe.lock_type }}</li>
+                <li><strong>Material:</strong> {{ safe.material }}</li>
+                {% if safe.category %}
+                    <li><strong>Kategoriya:</strong> {{ safe.category.name }}</li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+      <div class="reviews">
+        <h2>Sharhlar</h2>
+        {% if reviews %}
+            <ul>
+                {% for review in reviews %}
+                    <li>
+                        <p><strong>{{ review.user.username }}</strong> ({{ review.created_date|date:"Y-m-d H:i" }}):</p>
+                        <p>Reyting: {{ review.rating }}/5</p>
+                        <p>{{ review.comment }}</p>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>Hozircha sharhlar yo'q.</p>
+        {% endif %}
+
+        {% if user.is_authenticated %}
+            <h3>Sharh qoldirish</h3>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Yuborish</button>
+            </form>
+        {% else %}
+             <p><a href="{% url 'login' %}?next={{ request.path }}">Sharh qoldirish uchun tizimga kiring.</a></p>
+        {% endif %}
+    </div>
+{% endblock %}

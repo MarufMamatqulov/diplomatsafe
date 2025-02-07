@@ -1,0 +1,46 @@
+{% extends 'safebox_app/base.html' %}
+{% load static %}
+
+{% block title %}{{ category.name }}{% endblock %}
+
+{% block content %}
+    <h1>{{ category.name }}</h1>
+    <p>{{ category.description }}</p>
+      <div class="product-list">
+        {% for safe in page_obj %}
+          <div class="product-card">
+            <a href="{{ safe.get_absolute_url }}">
+                 {% if safe.model and safe.model.images.all %}
+                    <img src="{{ safe.model.images.first.image.url }}" alt="{{ safe.name }}">
+                {% else %}
+                      <img src="{% static 'safebox_app/images/no-image.jpg' %}" alt="Rasm yo'q">
+                {% endif %}
+
+              <h3>{{ safe.name }}</h3>
+              <p class="price">{{ safe.price }} so'm</p>
+            </a>
+          </div>
+        {% empty %}
+          <p>Hozircha seyflar yo'q.</p>
+        {% endfor %}
+      </div>
+
+    {# Paginatsiya #}
+     <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">« first</a>
+                <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">last »</a>
+            {% endif %}
+        </span>
+    </div>
+{% endblock %}
