@@ -1,10 +1,11 @@
 from django.contrib import admin
 from .models import Brand, Category, Model, ModelImage, Safe, Review
 
-
-class ModelImageInline(admin.TabularInline):  # Yoki StackedInline
+class ModelImageInline(admin.TabularInline):
     model = ModelImage
-    extra = 1
+    min_num = 0  # Kamida 0 ta rasm (bo'sh bo'lishi mumkin)
+    max_num = 8  # Ko'pi bilan 8 ta rasm
+
 
 @admin.register(Brand)
 class BrandAdmin(admin.ModelAdmin):
@@ -17,11 +18,13 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display = ('name', 'description', 'slug')
     prepopulated_fields = {'slug': ('name',)}
 
+
 @admin.register(Model)
 class ModelAdmin(admin.ModelAdmin):
     list_display = ('name', 'brand', 'slug')
     inlines = [ModelImageInline]
     prepopulated_fields = {'slug': ('name',)}
+
 
 @admin.register(Safe)
 class SafeAdmin(admin.ModelAdmin):
@@ -30,6 +33,7 @@ class SafeAdmin(admin.ModelAdmin):
     search_fields = ('name', 'description', 'model__name')
     prepopulated_fields = {'slug': ('name',)}
 
-@admin.register(Review)
-class ReviewAdmin(admin.ModelAdmin):
-     list_display = ('safe', 'rating', 'user', 'created_date')
+
+# @admin.register(Review)
+# class ReviewAdmin(admin.ModelAdmin):
+#     list_display = ('safe', 'rating', 'user', 'created_date')

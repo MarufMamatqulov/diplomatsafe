@@ -1,352 +1,562 @@
 /* Umumiy stillar */
 body {
-    font-family: 'Open Sans', sans-serif; /* Yoki boshqa shrift */
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
-    background-color: #f8f9fa; /* Yengil fon */
-  }
-  
-  a {
-    text-decoration: none;
-    color: #007bff; /* Asosiy havola rangi */
-  }
-  
-  a:hover {
-    text-decoration: underline;
-  }
-  
-  /* Header */
-  header {
-    background-color: #fff; /* Oq fon */
-    padding: 1rem 0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Soya */
-    display: flex;
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  background-color: #f4f4f4;
+}
+a {
+  text-decoration: none;
+  color: #007bff;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* Header */
+header {
+  background-color: #f8f9fa;
+  padding: 1rem 0;
+  border-bottom: 1px solid #dee2e6;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header-content {
+  display: flex;
+  align-items: center;
     justify-content: space-between;
-    align-items: center;
-  }
-  
-  .logo {
-    background-color: #007BFF;
-    padding: 15px 30px;
-    text-align: center;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    display: inline-block;
-    margin: 20px;
+  width: 100%;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+.logo {
+  margin-right: auto;
 }
 
 .logo a {
-    text-decoration: none;
-    color: white;
-    font-size: 24px;
-    font-weight: bold;
-    letter-spacing: 1.5px;
-    transition: all 0.3s ease;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #343a40;
+   display: block;
+  text-align: center;
+  width: 100%;
+  white-space: nowrap;
 }
 
-.logo a:hover {
-    color: #FFD700;
-    transform: scale(1.05);
-}
-  
-  header nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-      justify-content: center;
-  }
-  
-  header nav ul li a {
-    display: block;
-    padding: 0.5rem 1rem;
-    color: #343a40;
-    transition: color 0.2s;
-  }
-  
-  header nav ul li a:hover {
-    color: #007bff; /* Hover rangi */
-  }
-  
-  /* Search */
-  .search {
-    margin-right: 1rem;
-     display: flex;
-  }
-  
-  .search input {
-    padding: 0.5rem;
-    border: 1px solid #ced4da;
-    border-radius: 0.25rem 0 0 0.25rem;
-  }
-  
-  .search button {
-    padding: 0.5rem 1rem;
-    background-color: #007bff;
-    color: #fff;
-    border: 1px solid #007bff;
-    border-radius: 0 0.25rem 0.25rem 0;
-    cursor: pointer;
-    transition: background-color 0.2s;
-  }
-  
-  .search button:hover {
-    background-color: #0069d9;
-    border-color: #0062cc;
-  }
-  
-  /* Asosiy kontent */
-  main {
-    padding: 1rem;
-  }
-  
-  /* Mahsulot kartochkasi */
-  .product-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
-  }
-
-  /* O'rta ekranlar uchun (masalan, planshetlar) */
-@media (max-width: 992px) {
-  .product-list {
-      grid-template-columns: repeat(2, 1fr); /* 2 ta ustun */
-  }
+header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+   padding: 0;
 }
 
-/* Kichik ekranlar uchun (masalan, telefonlar) */
+/* Asosiy kontent */
+main {
+  padding: 1rem;
+}
+
+/* product list */
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.product-card {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.product-card:hover {
+  transform: scale(1.05);
+}
+
+.product-card img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 0.5rem;
+}
+
+.product-card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.2rem;
+}
+
+.price {
+  color: #dc3545;
+  font-weight: bold;
+}
+
+/* Mahsulot detali */
+.product-detail {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.product-images {
+  justify-self: center;
+  width: 100%;
+  max-width: 500px;
+  position: relative;
+  display: flex; /* Qo'shildi */
+  flex-direction: column; /* Qo'shildi: mySwiper2 va mySwiper ustun bo'lib joylashishi uchun */
+  align-items: center; /* Qo'shildi */
+}
+
+/* Swiper stillari */
+.swiper {
+width: 100%;
+height: auto; /* Asosiy o'zgarish: auto */
+}
+
+.mySwiper {
+height: auto; /* Kichik rasmlar uchun ham auto */
+width: 100%; /* Kichik rasmlar to'liq kenglikda */
+margin-top: 10px; /* Asosiy rasmdan ajratish */
+}
+.mySwiper2{
+  height: auto; /* asosiy rasm */
+}
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+display: block;
+width: 100%;
+height: 100%;
+object-fit: contain; /* Muhim! */
+}
+
+.mySwiper .swiper-slide {
+width: auto; /* Muhim! */
+height: 80px; /* Kichik rasmlar balandligi */
+opacity: 0.4;
+cursor: pointer;
+margin-right: 5px;
+}
+
+.mySwiper .swiper-slide-thumb-active {
+opacity: 1;
+border: 2px solid #007bff;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+color: #007bff;
+}
+
+.product-info {
+  justify-self: center;
+  width: 100%;
+  max-width: 700px;
+  text-align: center;
+}
+
+.product-info h1 {
+  font-size: 2rem;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.product-info .price {
+  font-size: 1.5rem;
+  color: #dc3545;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.product-info .description {
+  margin-bottom: 1rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+.product-details-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  text-align: left;
+}
+
+.product-info li {
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.product-info li strong {
+  margin-right: 0.5rem;
+  color: #333;
+}
+
+/* Sharhlar (o'chirilgan) */
+
+/* Pagination */
+.pagination {
+  margin-top: 20px;
+  text-align: center;
+}
+.step-links a {
+  padding: 5px 10px;
+  border: 1px solid #ddd;
+  margin: 0 2px;
+  color: #333;
+  text-decoration: none;
+}
+
+.step-links a:hover {
+  background-color: #f0f0f0;
+}
+
+.current {
+  padding: 5px 10px;
+  border: 1px solid #007bff;
+  margin: 0 2px;
+  background-color: #007bff;
+  color: white;
+}
+
+/* Search */
+.search {
+  display: flex;
+  align-items: center;
+ margin-left: auto;
+}
+
+.search input {
+  padding: 0.5rem;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem 0 0 0.25rem;
+  flex: 1;
+}
+
+.search button {
+  padding: 0.5rem 1rem;
+  background-color: #007bff;
+  color: #fff;
+  border: 1px solid #007bff;
+  border-radius: 0 0.25rem 0.25rem 0;
+  cursor: pointer;
+   white-space: nowrap;
+}
+
+.search button:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+/* Rasm yo'q */
+.no-image{
+  width: 100px;
+  height: auto;
+}
+/* Media so'rovlar */
 @media (max-width: 768px) {
-  .product-list {
-      grid-template-columns: repeat(1, 1fr); /* 1 ta ustun */
-  }
-
-  /* Boshqa elementlar uchun ham stillarni o'zgartirish mumkin */
   .product-detail {
-      flex-direction: column; /* Rasmlar va ma'lumotlar ustun bo'lib joylashadi */
+      grid-template-columns: 1fr;
+      padding: 10px;
   }
+  header{
+      flex-direction: column;
+      align-items: flex-start; /* Chapga tekislash */
 
-  .product-images, .product-info {
-      flex: 1 1 100%; /* To'liq kenglik */
-      max-width: 100%;
-      padding-right: 0;
   }
-
-   header nav ul {
-     flex-direction: column;
-     align-items: center;
+  .header-content{
+      flex-direction: column;
+      width: 100%;
   }
-
-  .search {
-     width: 100%; /* To'liq kenglik */
-  }
-
-   .search input,
-  .search button{
-      width: 80%;
-      border-radius: 0.25rem;
-  }
-}
-  
-  .product-card {
-    background-color: #fff;
-    border: 1px solid #dee2e6;
-    border-radius: 0.25rem;
-    padding: 1rem;
-    text-align: center;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
-  }
-  
-  .product-card:hover {
-    transform: scale(1.03);
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
-  }
-  
-  .product-card img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 0.5rem;
-        border-radius: 0.25rem;
-  }
-  
-  .product-card h3 {
-    margin: 0 0 0.5rem;
-    font-size: 1.2rem;
-    color: #343a40;
-  }
-  
-  .price {
-    color: #28a745; /* Yashil rang */
-    font-weight: bold;
-  }
-  
-  /* Mahsulot detali */
-  .product-detail {
-    display: flex;
-    flex-wrap: wrap;
-    background-color: #fff;
-    border: 1px solid #dee2e6;
-    border-radius: 0.25rem;
-    padding: 1rem;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  }
-  
-  .product-images {
-    flex: 0 0 50%;
-    max-width: 50%;
-    padding-right: 1rem;
-  }
-  
-  .product-images img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 0.5rem;
-      border-radius: 0.25rem;
-  }
-  
-  .product-info {
-    flex: 0 0 50%;
-    max-width: 50%;
-  }
-  
-  .product-info h1 {
-    margin-top: 0;
-    color: #343a40;
-  }
-  
-  .product-info .description {
-    color: #6c757d;
-    margin-bottom: 1rem;
-  }
-  
-  .product-info ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .product-info ul li {
-    margin-bottom: 0.5rem;
-  }
-  
-  .product-info ul li strong {
-    font-weight: bold;
-  }
-  
-  /* Sharhlar */
-  .reviews {
-    margin-top: 2rem;
-    padding: 1rem;
-    background-color: #fff;
-    border: 1px solid #dee2e6;
-    border-radius: 0.25rem;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  }
-  
-  .reviews h2 {
-      color: #343a40;
-    margin-top: 0;
-    margin-bottom: 1rem;
-    border-bottom: 1px solid #dee2e6;
-    padding-bottom: 0.5rem;
-  }
-  
-  .reviews ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .reviews li {
-    margin-bottom: 1rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid #dee2e6;
-  }
-  
-  .reviews li:last-child {
-    border-bottom: none;
-    margin-bottom: 0;
-      padding-bottom: 0;
-  }
-  
-  .reviews p strong {
-      color: #007bff;
-    font-weight: normal;
-  }
-  /* Paginatsiya */
-  
-  .pagination {
-      margin-top: 20px;
+  .logo{
+      margin-right: 0; /* Logotipdagi marginni olib tashlash */
+      margin-bottom: 0.5rem;
       text-align: center;
+      width: 100%;
   }
-  
-  .step-links a {
-      padding: 5px 10px;
-      border: 1px solid #ddd;
-      margin: 0 2px;
-      color: #333;
-      text-decoration: none;
+    header nav ul{
+      padding-left: 0;
   }
-  
-  .step-links a:hover {
-      background-color: #f0f0f0;
+  .search {
+      width: 100%;
+       margin-left: 0;
   }
-  
-  .current {
-      padding: 5px 10px;
-      border: 1px solid #007bff;
-      margin: 0 2px;
-      background-color: #007bff;
-      color: white;
+
+  .search input {
+      flex: 1;
   }
-  footer {
-    background-color: #333;
-    color: white;
-    padding: 20px;
+
+  .product-images,
+  .product-info {
+      max-width: 100%;
+  }
+
+  /* Swiper uchun (mobil) */
+  .mySwiper {
+      width: 100%;
+      height: auto;
+  }
+  .swiper{
+      width: auto;
+      height: auto;
+  }
+
+  .mySwiper .swiper-slide {
+      width: auto;
+      height: auto;
+      opacity: 0.4;
+      margin-right: 5px;
+  }
+   .mySwiper .swiper-slide-thumb-active {
+      opacity: 1;
+      border: 2px solid #007bff;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+      display: none; /* Mobil ko'rinishda yashirish */
+  }
+}
+/* ... (footer stillari) ... */
+/* footer style.cssdan */
+.footer {
+  background-color: #333;
+  color: white;
+  padding: 20px 0;
+  font-family: Arial, sans-serif;
+  margin-top: auto; /* Footer doim pastda turishi uchun */
 }
 
-.footer-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    max-width: 1200px;
-    margin: auto;
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+  padding: 10px;
+  flex-wrap: wrap;
 }
 
-.footer-info, .footer-map {
-    flex: 1 1 300px;
-    padding: 15px;
+.footer-left, .footer-right {
+   flex: 1;
+    padding: 10px;
+    min-width: 280px;
 }
 
-.footer-info h3 {
-    margin-top: 0;
+.footer-left a {
+  color: #4CAF50;
+  text-decoration: none;
+}
+
+.footer-left a:hover {
+  text-decoration: underline;
 }
 
 .social-icons a {
-    margin: 0 10px;
-    color: white;
-    font-size: 20px;
-    text-decoration: none;
+  margin: 0 10px;
+  font-size: 24px;
+  color: white;
+  transition: color 0.3s;
 }
 
 .social-icons a:hover {
-    color: #4CAF50;
+  color: #4CAF50;
 }
 
+.footer-bottom {
+  text-align: center;
+  padding-top: 10px;
+  border-top: 1px solid #555;
+  margin-top: 20px;
+}
 iframe {
-    width: 100%;
-    height: 200px;
-    border: none;
-    
+width: 100%;
+height: 200px;
+border: none;
+}
+
+/* ... (oldingi stillaringiz, Swiper stillari kerak emas) ... */
+
+/* Mahsulot detali */
+.product-detail {
+  display: grid;
+  grid-template-columns: 1fr; /* Bitta ustun */
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.product-images {
+  justify-self: center; /* Markazga joylash */
+  width: 100%;
+  max-width: 500px; /* Katta ekranlar uchun chegaralash */
+  position: relative;
+   display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.main-image-container {
+width: 100%; /* Konteyner kengligi */
+text-align: center; /* Rasmni markazga joylash */
+}
+
+.main-image {
+max-width: 100%; /* Rasm konteynerdan chiqib ketmasligi uchun */
+height: auto; /* Balandlik avtomatik */
+display: block; /* Keraksiz bo'shliqlarni olib tashlash */
+margin: 0 auto; /* Gorizontal markazga joylash */
+}
+
+.thumbnail-container {
+display: flex; /* Kichik rasmlarni yonma-yon joylashtirish */
+flex-wrap: wrap; /* Agar sig'masa, pastga tushirish */
+justify-content: center; /* Markazga joylash */
+gap: 10px; /* Rasmlar orasidagi masofa */
+margin-top: 10px; /* Asosiy rasmdan ajratish */
+}
+
+.thumbnail {
+width: 80px; /* Kichik rasmlar o'lchami */
+height: 80px;
+object-fit: cover; /* Rasm to'liq ko'rinishi uchun */
+cursor: pointer; /* Sichqoncha ko'rsatkichini o'zgartirish */
+border: 2px solid transparent; /* Chegara (bosilganda o'zgaradi) */
+}
+
+.thumbnail:hover,
+.thumbnail.active {
+border-color: #007bff; /* Aktiv/hover holatidagi chegara rangi */
+opacity: 1;
+}
+.product-info {
+  justify-self: center; /* Markazga joylash */
+  width: 100%;
+  max-width: 700px;
+  text-align: center;
+}
+
+.product-info h1 {
+font-size: 2rem;
+margin-top: 0;
+margin-bottom: 0.5rem;
+color: #333;
+}
+
+.product-info .price {
+  font-size: 1.5rem;
+color: #dc3545;
+font-weight: bold;
+margin-bottom: 1rem;
+}
+
+.product-info .description {
+   margin-bottom: 1rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+.product-details-list{
+   list-style: none;
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  text-align: left;
+}
+
+.product-info li {
+   margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.product-info li strong {
+  margin-right: 0.5rem;
+  color: #333;
+}
+
+/* Rasm yo'q */
+.no-image {
+width: 100px; /* Kichikroq o'lcham */
+height: auto;
+}
+
+/* Mobil uchun */
+@media (max-width: 768px) {
+  .product-detail {
+      grid-template-columns: 1fr;
+      padding: 10px;
+  }
+    header{
+      flex-direction: column;
+      align-items: flex-start; /* Chapga tekislash */
+
+  }
+  .header-content{
+      flex-direction: column;
+      width: 100%;
+  }
+  .logo{
+      margin-right: 0;
+      margin-bottom: 0.5rem;
+       text-align: center;
+      width: 100%;
+  }
+    header nav ul{
+      padding-left: 0;
+  }
+  .search {
+  width: 100%;
+  margin-left: 0;
+}
+  .search input{
+      flex: 1;
+  }
+
+  .product-images,
+  .product-info {
+      max-width: 100%;
+  }
+}
+/* ... (boshqa stillaringiz) ... */
+
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 ta ustun */
+  gap: 20px;
+}
+
+/* Kichik ekranlar uchun */
+@media (max-width: 992px) { /* Bootstrap-ni col-md- breakpointi */
+  .product-list {
+    grid-template-columns: repeat(3, 1fr); /* 3 ta ustun */
+  }
 }
 
 @media (max-width: 768px) {
-    .footer-container {
-        flex-direction: column;
-        text-align: center;
-    }
-    .social-icons a {
-        margin: 5px;
+  .product-list {
+    grid-template-columns: repeat(2, 1fr); /* 2 ta ustun */
+  }
+}
+
+@media (max-width: 576px) { /* Bootstrap-ni col-sm- breakpointi */
+    .product-list {
+        grid-template-columns: 1fr; /* 1 ta ustun */
     }
 }

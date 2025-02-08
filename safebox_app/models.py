@@ -33,6 +33,7 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+
 class Model(models.Model):
     name = models.CharField(max_length=255)
     brand = models.ForeignKey(Brand, on_delete=models.CASCADE, related_name='models')
@@ -40,11 +41,12 @@ class Model(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.slug:
-             self.slug = slugify(f"{self.brand.name}-{self.name}")
+            self.slug = slugify(f"{self.brand.name}-{self.name}")
         super().save(*args, **kwargs)
 
     def __str__(self):
         return f"{self.brand.name} - {self.name}"
+
 
 class ModelImage(models.Model):
     model = models.ForeignKey(Model, on_delete=models.CASCADE, related_name='images')
@@ -53,6 +55,7 @@ class ModelImage(models.Model):
 
     class Meta:
         ordering = ['order']
+
     def __str__(self):
         return f"Rasm - {self.model.name} ({self.order})"
 
@@ -83,6 +86,7 @@ class Safe(models.Model):
 
     def __str__(self):
         return self.name
+
 
 class Review(models.Model):
     safe = models.ForeignKey(Safe, on_delete=models.CASCADE, related_name='reviews')

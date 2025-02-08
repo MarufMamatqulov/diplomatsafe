@@ -2,42 +2,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Safebox Store{% endblock %}</title>
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <!-- Font Awesome (agar ishlatsangiz) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+     <!-- Sizning CSS faylingiz -->
     <link rel="stylesheet" href="{% static 'safebox_app/css/style.css' %}">
-      {% block styles %}{% endblock %}
+    {% block styles %}{% endblock %}
 </head>
 <body>
      <header>
-        <div class="logo">
-            <a href="{% url 'home' %}">Wise safe box</a>
-        </div>
-        <nav>
-            <ul>
-                 {% for category in categories %}
+        <div class="header-content">
+            <div class="logo">
+                <a href="{% url 'home' %}">Wise safe box</a>
+            </div>
+            <nav>
+                <ul>
+                    {% for category in categories %}
                     <li><a href="{% url 'category_list' category.slug %}">{{ category.name }}</a></li>
-                {% endfor %}
-            </ul>
-        </nav>
-         <div class="search">
-            <form action="{% url 'search' %}" method="get">
-                <input type="text" name="q" placeholder="Qidiruv...">
-                <button type="submit">Qidirish</button>
-            </form>
+                    {% endfor %}
+                </ul>
+            </nav>
+            <div class="search">
+                <form action="{% url 'search' %}" method="get">
+                    <input type="text" name="q" placeholder="Qidiruv...">
+                    <button type="submit">Qidirish</button>
+                </form>
+            </div>
         </div>
     </header>
 
     <main>
         {% block content %}{% endblock %}
     </main>
+
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-left">
                 <h3>Sizning Kompaniyangiz</h3>
                 <p>📞 Telefon: <a href="tel:+998901234567">+998 90 123 45 67</a>, <a href="tel:+998931234567">+998 93 123 45 67</a></p>
-                <p>📍 Manzil: Яшнободский район, Ташкент Координаты</p>
+                <p>📍 Manzil: Yashnobod tumani, Toshkent shahri</p>
                 <p>Litsenziya va hujjatlar</p>
                 <div class="social-icons">
                     <a href="https://t.me/sizningkanalingiz" target="_blank"><i class="fab fa-telegram-plane"></i></a>
@@ -46,81 +53,188 @@
                 </div>
             </div>
             <div class="footer-right">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1211.0134800261287!2d69.34789912499522!3d41.30066757103644!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2s!4v1738907158628!5m2!1sen!2s" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2995.5311178574544!2d69.34482717685198!3d41.3406063999607!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38aef4d37639531d%3A0x2754d9c8e8e221e1!2sToshkent%2C%20Uzbekistan!5e0!3m2!1sen!2s!4v1708069193629!5m2!1sen!2s" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
         <div class="footer-bottom">
             <p>© 2023 Sizning Kompaniyangiz. Barcha huquqlar himoyalangan.</p>
         </div>
     </footer>
-    
-    <style>
-    .footer {
-        background-color: #333;
-        color: white;
-        padding: 20px 0;
-        font-family: Arial, sans-serif;
-    }
-    
-    .footer-content {
-        display: flex;
-        justify-content: space-between;
-        max-width: 1200px;
-        margin: auto;
-        padding: 10px;
-        flex-wrap: wrap;
-    }
-    
-    .footer-left, .footer-right {
-        flex: 1;
-        padding: 10px;
-        min-width: 280px;
-    }
-    
-    .footer-left a {
-        color: #4CAF50;
-        text-decoration: none;
-    }
-    
-    .footer-left a:hover {
-        text-decoration: underline;
-    }
-    
-    .social-icons a {
-        margin: 0 10px;
-        font-size: 24px;
-        color: white;
-        transition: color 0.3s;
-    }
-    
-    .social-icons a:hover {
-        color: #4CAF50;
-    }
-    
-    .footer-bottom {
-        text-align: center;
-        padding-top: 10px;
-        border-top: 1px solid #555;
-        margin-top: 20px;
-    }
-    
-    iframe {
-        width: 100%;
-        height: 200px;
-        border: none;
-    }
-    
-    @media (max-width: 768px) {
-        .footer-content {
-            flex-direction: column;
-            text-align: center;
-        }
-        .footer-left, .footer-right {
-            min-width: 100%;
-        }
-    }
-    </style>
-    
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
     {% block scripts %}{% endblock %}
+    <style>
+       /* Swiper stillari */
+        .swiper {
+        width: 100%;
+        height: 300px; /* Aniq o'lcham */
+        }
+
+        .mySwiper {
+        height: 80px; /* Kichik rasmlar uchun */
+        box-sizing: border-box;
+        padding: 10px 0;
+        }
+
+        .swiper-slide {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        }
+
+        .swiper-slide img {
+            display: block;
+        width: 100%;
+        height: 100%;
+            object-fit: contain;
+        }
+
+        .mySwiper .swiper-slide {
+        width: auto; /* Kichik rasmlar avtomatik kenglikda */
+        height: 100%;
+        opacity: 0.4;
+        cursor: pointer;
+        margin-right: 5px; /* Oraliq */
+        }
+
+        .mySwiper .swiper-slide-thumb-active {
+        opacity: 1;
+        border: 2px solid #007bff; /* Aktiv rasm chegarasi */
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+        color: #007bff;
+        }
+                .footer {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            font-family: Arial, sans-serif;
+            margin-top: auto; /* Footer doim pastda turishi uchun */
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: auto;
+            padding: 10px;
+            flex-wrap: wrap;
+        }
+
+        .footer-left,
+        .footer-right {
+            flex: 1;
+            padding: 10px;
+            min-width: 280px;
+        }
+
+        .footer-left a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        .footer-left a:hover {
+            text-decoration: underline;
+        }
+
+        .social-icons a {
+            margin: 0 10px;
+            font-size: 24px;
+            color: white;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #4CAF50;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 10px;
+            border-top: 1px solid #555;
+            margin-top: 20px;
+        }
+
+        iframe {
+            width: 100%;
+            height: 200px;
+            border: none;
+        }
+
+          /* Search */
+        .search{
+            display: flex;
+        }
+        .search input {
+            padding: 0.5rem;
+            border: 1px solid #ced4da;
+            border-radius: 0.25rem 0 0 0.25rem; /* chap tomoni yumaloq */
+            flex: 1;
+        }
+        .search button {
+            padding: 0.5rem 1rem;
+            background-color: #007bff;
+            color: #fff;
+            border: 1px solid #007bff;
+            border-radius: 0 0.25rem 0.25rem 0; /* o'ng tomoni yumaloq */
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .search button:hover {
+            background-color: #0069d9;
+            border-color: #0062cc;
+        }
+
+        /* Kichik ekranlar uchun */
+        @media (max-width: 768px){
+            header{
+                flex-direction: column;
+                align-items: flex-start; /* Chapga tekislash */
+
+            }
+            .header-content{
+                flex-direction: column;
+                width: 100%;
+            }
+            .logo{
+                margin-right: 0; /* Logotipdagi marginni olib tashlash */
+                margin-bottom: 0.5rem;
+            }
+            header nav ul{
+                padding-left: 0;
+            }
+            .search {
+            width: 100%;
+            margin-left: 0;
+          }
+            .search input{
+                flex: 1;
+            }
+              .mySwiper {
+                width: 100%; /* Kichik rasmlar uchun Swiper */
+                height: auto; /* Balandlikni avtomatik qilish */
+            }
+
+            .mySwiper .swiper-slide {
+                width: auto; /* Kenglikni avtomatik qilish */
+                height: auto;
+                opacity: 0.4;
+                margin-right: 5px; /* Rasmlar orasidagi masofa */
+            }
+
+            .mySwiper .swiper-slide-thumb-active {
+                opacity: 1;
+                  border: 2px solid blue;
+            }
+              .swiper-button-next,
+            .swiper-button-prev {
+                display: none; /* Kichik ekranlarda tugmalarni yashirish */
+            }
+        }
+    </style>
 </body>
 </html>
