@@ -32,17 +32,43 @@ header {
   box-sizing: border-box;
 }
 .logo {
-  margin-right: auto;
+  font-family: 'Arial', sans-serif;
+  font-size: 32px;
+  font-weight: bold;
+  color: #0077b6;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  position: relative;
+  padding: 5px 10px;
 }
 
-.logo a {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #343a40;
-   display: block;
-  text-align: center;
+.logo::before, .logo::after {
+  content: '';
+  position: absolute;
   width: 100%;
-  white-space: nowrap;
+  height: 2px;
+  background: #0077b6;
+  left: 0;
+}
+
+.logo::before {
+  top: 0;
+}
+
+.logo::after {
+  bottom: 0;
+}
+
+.categories {
+  margin-top: 30px; /* Kategoriyalarni logodan uzoqroqqa surish */
+  margin-left: 50px; /* Kategoriyalarni o'ngga surish */
+  font-family: 'Arial', sans-serif;
+}
+
+.categories a {
+  margin: 0 10px;
+  color: #0077b6;
+  text-decoration: none;
 }
 
 header nav ul {
