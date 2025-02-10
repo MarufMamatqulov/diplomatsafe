@@ -18,7 +18,7 @@ def home(request):
     categories = Category.objects.all()
 
     # Paginatsiya (8 ta mahsulot)
-    paginator = Paginator(safes, 8)  # <--- O'zgarish: 6 o'rniga 8
+    paginator = Paginator(safes, 9)  # <--- O'zgarish: 6 o'rniga 8
     page_number = request.GET.get('page')
     try:
         page_obj = paginator.page(page_number)
@@ -39,7 +39,7 @@ def category_list(request, category_slug):
     categories = Category.objects.all()
 
     # Paginatsiya (8 ta mahsulot)
-    paginator = Paginator(safes, 8)  # <--- O'zgarish: 6 o'rniga 8
+    paginator = Paginator(safes, 9)  # <--- O'zgarish: 6 o'rniga 8
     page_number = request.GET.get('page')
     try:
         page_obj = paginator.page(page_number)
@@ -78,7 +78,7 @@ def search(request):
             is_available=True
         )
         # Paginatsiya (8 ta mahsulot)
-        paginator = Paginator(safes, 8)  # <--- O'zgarish: 6 o'rniga 8
+        paginator = Paginator(safes, 9)  # <--- O'zgarish: 6 o'rniga 8
         page_number = request.GET.get('page')
         try:
             page_obj = paginator.page(page_number)
