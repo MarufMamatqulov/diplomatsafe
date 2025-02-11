@@ -14,7 +14,7 @@ SECRET_KEY = 'sizning-maxfiy-kalitingiz' # Buni almashtiring!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True  # Development uchun True, production uchun False
 
-ALLOWED_HOSTS = [] # production serverda ['*'] yoki ['your_domian.com']
+ALLOWED_HOSTS = ['*'] # production serverda ['*'] yoki ['your_domian.com']
 
 
 # Application definition
@@ -32,6 +32,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -53,7 +54,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                 'safebox_app.context_processors.categories', # Har doim category larni olish uchun
+                'safebox_app.context_processors.categories', # Har doim category larni olish uchun
+                'whitenoise.runserver_nostatic'
             ],
         },
     },
@@ -106,6 +108,12 @@ USE_TZ = True         # Vaqt zonalarini qo'llab-quvvatlash
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
+
+STATICFILES_DIRS = [os.path.join (BASE_DIR, 'satatic')]
+
+STATIC_ROOT = os.path.join (BASE_DIR, 'staticfiles')
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFileStorage'
 
 STATIC_URL = '/static/'
 
