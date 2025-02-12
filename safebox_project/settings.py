@@ -115,7 +115,6 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
-
 STATIC_ROOT = '/home/diploma4/public_html/django/static'
 
 
