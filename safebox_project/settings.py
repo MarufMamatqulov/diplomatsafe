@@ -109,16 +109,15 @@ USE_TZ = True         # Vaqt zonalarini qo'llab-quvvatlash
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = '/static/'
-
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-STATIC_ROOT = '/home/diploma4/public_html/django/static'
 
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
-STATICFILES_DIRS = '/home/diploma4/public_html/django/staticfiles'
+
+STATIC_ROOT = '/home/diploma4/public_html/django/static'
+
 
 
 # STATIC_ROOT = BASE_DIR / 'staticfiles' # Deploy uchun (keyinroq)
