@@ -7,4 +7,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('safebox_app.urls')),  # Asosiy ilova URL larini qo'shish
     path('accounts/', include('django.contrib.auth.urls')), # autentifikatsiya
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) # media file
+] 
+
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
