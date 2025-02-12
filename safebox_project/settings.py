@@ -114,6 +114,10 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 STATIC_ROOT = '/home/diploma4/public_html/django/static'
 
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
+
 STATICFILES_DIRS = '/home/diploma4/public_html/django/staticfiles'
 
 
