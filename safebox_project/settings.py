@@ -14,7 +14,7 @@ SECRET_KEY = 'sizning-maxfiy-kalitingiz' # Buni almashtiring!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False  # Development uchun True, production uchun False
 
-ALLOWED_HOSTS = ["diplomatseyf.uz","www.diplomatsafe.uz"] # production serverda ['*'] yoki ['your_domian.com']
+ALLOWED_HOSTS = ["diplomatseyf.uz","www.diplomatseyf.uz"] # production serverda ['*'] yoki ['your_domian.com']
 
 
 # Application definition
