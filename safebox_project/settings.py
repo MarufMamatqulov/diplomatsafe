@@ -115,8 +115,7 @@ STATICFILES_DIRS = [
     BASE_DIR / "assets",   # Changed from "static" to "assets"
 ]
 
-STATIC_ROOT = '/home/diploma4/public_html/django/static'
-
+STATIC_ROOT = BASE_DIR / 'staticfiles' # 'staticfiles' papkasi loyihaning asosiy papkasida bo'ladi
 
 
 
