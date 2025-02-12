@@ -5,10 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Diplomat Safe{% endblock %}</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="/asfebox_app/templates/54545/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/asfebox_app/templates/54545/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/asfebox_app/templates/54545/favicon-16x16.png">
-    <link rel="manifest" href="/asfebox_app/templates/54545/site.webmanifest">
+    <link rel="icon" type="image/png" sizes="32x32" href="safebox_app\templates\safebox_app\images\favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="safebox_app\templates\safebox_app\images\favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="safebox_app\templates\safebox_app\images\apple-touch-icon.png">
+    <link rel="manifest" href="safebox_app\templates\safebox_app\images\site.webmanifest">
+    <link rel="icon" href="safebox_app\templates\safebox_app\images\favicon.ico" type="image/x-icon">
+
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <!-- Font Awesome (agar ishlatsangiz) -->
@@ -21,7 +23,7 @@
      <header>
         <div class="header-content">
             <div class="logo">
-                <a href="{% url 'home' %}">Diplomat Safe</a>
+                <a href="{% url 'home' %}"><img src="/static/safebox_app/22.jpg" alt="logo"></a>
             </div>
             <nav>
                 <ul class="categories">

@@ -65,6 +65,8 @@ header {
     margin-right: 1rem;
 }
 
+
+
 header nav ul {
     list-style: none;
     display: flex; /* Flexbox o'rniga grid ishlatish shart emas */
