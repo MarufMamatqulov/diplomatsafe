@@ -12,9 +12,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'sizning-maxfiy-kalitingiz' # Buni almashtiring!
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True  # Development uchun True, production uchun False
+DEBUG = False  # Development uchun True, production uchun False
 
-ALLOWED_HOSTS = [] # production serverda ['*'] yoki ['your_domian.com']
+ALLOWED_HOSTS = ['diplomatseyf.uz'] # production serverda ['*'] yoki ['your_domian.com']
 
 
 # Application definition
@@ -108,6 +108,8 @@ USE_TZ = True         # Vaqt zonalarini qo'llab-quvvatlash
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 STATICFILES_DIRS = [
     BASE_DIR / "static",
