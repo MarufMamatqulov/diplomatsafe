@@ -5,7 +5,7 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'YOUR_ACTUAL_SECRET_KEY'  #  <--- MAXFIY KALITNI QO'YING!
+SECRET_KEY = 'YOUR_ACTUAlL_SECRET_KEY'  #  <--- MAXFIY KALITNI QO'YING!
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False  # PRODUCTION UCHUN FALSE
